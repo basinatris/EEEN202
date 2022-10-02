@@ -1,0 +1,6 @@
+".\Objects\STARTUP.obj",
+".\Objects\diy_adc.obj",
+".\Objects\lcd.obj" 
+TO ".\Objects\ECEN202_DIY_ADC" 
+
+PRINT(".\Listings\ECEN202_DIY_ADC.map")

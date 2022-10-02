@@ -1,0 +1,399 @@
+LX51 LINKER/LOCATER V4.66.97.0                                                          05/14/2021  11:27:19  PAGE 1
+
+
+LX51 LINKER/LOCATER V4.66.97.0, INVOKED BY:
+C:\KEIL_V5\C51\BIN\LX51.EXE .\Objects\STARTUP.obj, .\Objects\diy_adc.obj, .\Objects\lcd.obj TO .\Objects\ECEN202_DIY_ADC
+>>  PRINT (.\Listings\ECEN202_DIY_ADC.map)
+
+
+CPU MODE:     8051 MODE
+MEMORY MODEL: LARGE
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\STARTUP.obj (?C_STARTUP)
+         COMMENT TYPE 1: A51 / ASM51 Assembler
+  .\Objects\diy_adc.obj (DIY_ADC)
+         COMMENT TYPE 0: C51 V9.60.0.0
+  .\Objects\lcd.obj (LCD)
+         COMMENT TYPE 0: C51 V9.60.0.0
+  C:\KEIL_V5\C51\LIB\C51L.LIB (?C?CLDOPTR)
+         COMMENT TYPE 1: A51 / ASM51 Assembler
+  C:\KEIL_V5\C51\LIB\C51L.LIB (PRINTF)
+         COMMENT TYPE 1: A51 / ASM51 Assembler
+  C:\KEIL_V5\C51\LIB\C51L.LIB (?C?CLDPTR)
+         COMMENT TYPE 1: A51 / ASM51 Assembler
+  C:\KEIL_V5\C51\LIB\C51L.LIB (?C?CSTPTR)
+         COMMENT TYPE 1: A51 / ASM51 Assembler
+  C:\KEIL_V5\C51\LIB\C51L.LIB (?C?PLDIXDATA)
+         COMMENT TYPE 1: A51 / ASM51 Assembler
+  C:\KEIL_V5\C51\LIB\C51L.LIB (?C?PSTXDATA)
+         COMMENT TYPE 1: A51 / ASM51 Assembler
+  C:\KEIL_V5\C51\LIB\C51L.LIB (?C?CCASE)
+         COMMENT TYPE 1: A51 / ASM51 Assembler
+  C:\KEIL_V5\C51\LIB\C51L.LIB (PUTCHAR)
+         COMMENT TYPE 1: A51 / ASM51 Assembler
+
+
+ACTIVE MEMORY CLASSES OF MODULE:  .\Objects\ECEN202_DIY_ADC (?C_STARTUP)
+
+BASE        START       END         USED      MEMORY CLASS
+==========================================================
+C:000000H   C:000000H   C:00FFFFH   000551H   CODE
+I:000000H   I:000000H   I:0000FFH   000001H   IDATA
+X:000000H   X:000000H   X:00FFFFH   00003AH   XDATA
+C:000000H   C:000000H   C:00FFFFH   000006H   CONST
+I:000000H   I:000000H   I:00007FH   00000DH   DATA
+I:000020H.0 I:000020H.0 I:00002FH.7 000001H.1 BIT
+
+
+MEMORY MAP OF MODULE:  .\Objects\ECEN202_DIY_ADC (?C_STARTUP)
+
+
+START     STOP      LENGTH    ALIGN  RELOC    MEMORY CLASS   SEGMENT NAME
+=========================================================================
+
+* * * * * * * * * * *   D A T A   M E M O R Y   * * * * * * * * * * * * *
+000000H   000007H   000008H   ---    AT..     DATA           "REG BANK 0"
+000008H   00000CH   000005H   BYTE   UNIT     DATA           _DATA_GROUP_
+00000DH.0 00001FH.7 000013H.0 ---    ---      **GAP**
+000020H.0 000021H.0 000001H.1 BIT    UNIT     BIT            _BIT_GROUP_
+000021H.1 000021H   000000H.7 ---    ---      **GAP**
+000022H   000022H   000001H   BYTE   UNIT     IDATA          ?STACK
+
+* * * * * * * * * * *   C O D E   M E M O R Y   * * * * * * * * * * * * *
+000000H   000002H   000003H   ---    OFFS..   CODE           ?CO??C_STARTUP?0
+000003H   0000A0H   00009EH   BYTE   UNIT     CODE           ?C?LIB_CODE
+0000A1H   0000E2H   000042H   BYTE   UNIT     CODE           ?PR?MAIN?DIY_ADC
+0000E3H   000111H   00002FH   BYTE   UNIT     CODE           ?PR?STAIRCASECONVERTER?DIY_ADC
+000112H   00013FH   00002EH   BYTE   UNIT     CODE           ?PR?_WRITELINELCD?LCD
+LX51 LINKER/LOCATER V4.66.97.0                                                        05/14/2021  11:27:19  PAGE 2
+
+
+000140H   000166H   000027H   BYTE   UNIT     CODE           ?PR?PUTCHAR?PUTCHAR
+000167H   000188H   000022H   BYTE   UNIT     CODE           ?PR?INITLCD?LCD
+000189H   0001A9H   000021H   BYTE   UNIT     CODE           ?PR?_DELAY?LCD
+0001AAH   0001BCH   000013H   BYTE   UNIT     CODE           ?PR?LATCHLCD?LCD
+0001BDH   0001CDH   000011H   BYTE   UNIT     CODE           ?PR?CLEARLCD?LCD
+0001CEH   0001D6H   000009H   BYTE   UNIT     CODE           ?PR?_SENDCOMMAND?LCD
+0001D7H   0001DFH   000009H   BYTE   UNIT     CODE           ?PR?_WRITECHARLCD?LCD
+0001E0H   0001E5H   000006H   BYTE   UNIT     CONST          ?CO?DIY_ADC
+0001E6H   0007FFH   00061AH   ---    ---      **GAP**
+000800H   000B64H   000365H   BYTE   UNIT     CODE           ?PR?PRINTF?PRINTF
+000B65H   000D2FH   0001CBH   ---    ---      **GAP**
+000D30H   000D3BH   00000CH   BYTE   UNIT     CODE           ?C_C51STARTUP
+
+* * * * * * * * * * *  X D A T A   M E M O R Y  * * * * * * * * * * * * *
+000000H   000039H   00003AH   BYTE   UNIT     XDATA          _XDATA_GROUP_
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\ECEN202_DIY_ADC (?C_STARTUP)
+
+
+FUNCTION/MODULE                  BIT_GROUP   DATA_GROUP   XDATA_GROUP
+--> CALLED FUNCTION/MODULE      START  STOP  START  STOP  START  STOP
+=====================================================================
+?C_C51STARTUP                   ----- -----  ----- -----  ----- -----
+  +--> MAIN/DIY_ADC
+
+MAIN/DIY_ADC                    ----- -----  ----- -----  0000H 0011H
+  +--> INITLCD/LCD
+  +--> STAIRCASECONVERTER/DIY_ADC
+  +--> PRINTF/PRINTF
+  +--> _WRITELINELCD/LCD
+  +--> _DELAY/LCD
+  +--> CLEARLCD/LCD
+
+INITLCD/LCD                     ----- -----  ----- -----  ----- -----
+  +--> _DELAY/LCD
+  +--> _SENDCOMMAND/LCD
+
+_DELAY/LCD                      ----- -----  ----- -----  ----- -----
+  +--> _SENDCOMMAND/LCD
+
+_SENDCOMMAND/LCD                ----- -----  ----- -----  ----- -----
+  +--> LATCHLCD/LCD
+
+LATCHLCD/LCD                    ----- -----  ----- -----  ----- -----
+
+STAIRCASECONVERTER/DIY_ADC      ----- -----  ----- -----  0012H 0012H
+  +--> _DELAY/LCD
+
+PRINTF/PRINTF                   20H.0 21H.0  0008H 000CH  0012H 0039H
+  +--> PUTCHAR/PUTCHAR
+
+PUTCHAR/PUTCHAR                 ----- -----  ----- -----  ----- -----
+
+_WRITELINELCD/LCD               ----- -----  ----- -----  0012H 0014H
+  +--> _WRITECHARLCD/LCD
+
+_WRITECHARLCD/LCD               ----- -----  ----- -----  ----- -----
+  +--> LATCHLCD/LCD
+
+CLEARLCD/LCD                    ----- -----  ----- -----  ----- -----
+  +--> _SENDCOMMAND/LCD
+  +--> _DELAY/LCD
+
+LX51 LINKER/LOCATER V4.66.97.0                                                        05/14/2021  11:27:19  PAGE 3
+
+
+
+
+PUBLIC SYMBOLS OF MODULE:  .\Objects\ECEN202_DIY_ADC (?C_STARTUP)
+
+
+      VALUE       CLASS    TYPE      PUBLIC SYMBOL NAME
+      =================================================
+      02000012H   XDATA    ---       ?_PRINTF517?BYTE
+      02000012H   XDATA    ---       ?_PRINTF?BYTE
+      02000012H   XDATA    ---       ?_SPRINTF517?BYTE
+      02000012H   XDATA    ---       ?_SPRINTF?BYTE
+      0100007BH   CODE     ---       ?C?CCASE
+      01000003H   CODE     ---       ?C?CLDOPTR
+      01000030H   CODE     ---       ?C?CLDPTR
+      00000000H   NUMBER   ---       ?C?CODESEG
+      01000049H   CODE     ---       ?C?CSTPTR
+      0100005BH   CODE     ---       ?C?PLDIXDATA
+      01000072H   CODE     ---       ?C?PSTXDATA
+      00000000H   NUMBER   ---       ?C?XDATASEG
+      010000A1H   CODE     ---       ?C_START
+      01000000H   CODE     ---       ?C_STARTUP
+      01000192H   CODE     ---       _delay
+      0100086BH   CODE     ---       _PRINTF
+      0100086BH   CODE     ---       _PRINTF517
+      01000140H   CODE     ---       _PUTCHAR
+      010001CEH   CODE     ---       _sendCommand
+      01000865H   CODE     ---       _SPRINTF
+      01000865H   CODE     ---       _SPRINTF517
+      010001D7H   CODE     ---       _writeCharLCD
+      01000112H   CODE     ---       _writeLineLCD
+      010001BDH   CODE     ---       clearLCD
+      01000167H   CODE     ---       initLCD
+      010001AAH   CODE     ---       latchLCD
+      010000A1H   CODE     ---       main
+*SFR* 000000B0H.7 DATA     BIT       PIN_CMP
+*SFR* 000000A0H.2 DATA     BIT       PIN_EN_LCD
+*SFR* 000000A0H.0 DATA     BIT       PIN_RS_LCD
+*SFR* 000000A0H.1 DATA     BIT       PIN_RW_LCD
+*SFR* 00000080H   DATA     BYTE      PORT_DAC
+*SFR* 00000090H   DATA     BYTE      PORT_LCD
+      010000E3H   CODE     ---       staircaseConverter
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\ECEN202_DIY_ADC (?C_STARTUP)
+
+      VALUE       REP       CLASS    TYPE      SYMBOL NAME
+      ====================================================
+      ---         MODULE    ---      ---       ?C_STARTUP
+      01000000H   PUBLIC    CODE     ---       ?C_STARTUP
+      000000E0H   SYMBOL    DATA     ---       ACC
+      000000F0H   SYMBOL    DATA     ---       B
+      00000083H   SYMBOL    DATA     ---       DPH
+      00000082H   SYMBOL    DATA     ---       DPL
+      00000000H   SYMBOL    NUMBER   ---       IBPSTACK
+      00000100H   SYMBOL    NUMBER   ---       IBPSTACKTOP
+      00000080H   SYMBOL    NUMBER   ---       IDATALEN
+      01000D33H   SYMBOL    CODE     ---       IDATALOOP
+      00000000H   SYMBOL    NUMBER   ---       PBPSTACK
+      00000100H   SYMBOL    NUMBER   ---       PBPSTACKTOP
+      00000000H   SYMBOL    NUMBER   ---       PDATALEN
+      00000000H   SYMBOL    NUMBER   ---       PDATASTART
+      00000000H   SYMBOL    NUMBER   ---       PPAGE
+      00000000H   SYMBOL    NUMBER   ---       PPAGEENABLE
+      000000A0H   SYMBOL    DATA     ---       PPAGE_SFR
+LX51 LINKER/LOCATER V4.66.97.0                                                        05/14/2021  11:27:19  PAGE 4
+
+
+      00000081H   SYMBOL    DATA     ---       SP
+      01000D30H   SYMBOL    CODE     ---       STARTUP1
+      00000000H   SYMBOL    NUMBER   ---       XBPSTACK
+      00000000H   SYMBOL    NUMBER   ---       XBPSTACKTOP
+      00000000H   SYMBOL    NUMBER   ---       XDATALEN
+      00000000H   SYMBOL    NUMBER   ---       XDATASTART
+      01000000H   LINE      CODE     ---       #126
+      01000D30H   LINE      CODE     ---       #133
+      01000D32H   LINE      CODE     ---       #134
+      01000D33H   LINE      CODE     ---       #135
+      01000D34H   LINE      CODE     ---       #136
+      01000D36H   LINE      CODE     ---       #185
+      01000D39H   LINE      CODE     ---       #196
+
+      ---         MODULE    ---      ---       DIY_ADC
+      010000A1H   PUBLIC    CODE     ---       main
+      010000E3H   PUBLIC    CODE     ---       staircaseConverter
+      000000B0H.7 SFRSYM    DATA     BIT       PIN_CMP
+      00000080H   SFRSYM    DATA     BYTE      PORT_DAC
+
+      010000E3H   BLOCK     CODE     ---       LVL=0
+      010000E3H   BLOCK     CODE     NEAR LAB  LVL=1
+      02000012H   SYMBOL    XDATA    BYTE      test_val
+      ---         BLOCKEND  ---      ---       LVL=1
+      010000E3H   LINE      CODE     ---       #17
+      010000E3H   LINE      CODE     ---       #19
+      010000F5H   LINE      CODE     ---       #20
+      010000F7H   LINE      CODE     ---       #21
+      010000FEH   LINE      CODE     ---       #22
+      01000101H   LINE      CODE     ---       #23
+      01000107H   LINE      CODE     ---       #24
+      01000107H   LINE      CODE     ---       #25
+      0100010FH   LINE      CODE     ---       #26
+      01000111H   LINE      CODE     ---       #27
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      010000A1H   BLOCK     CODE     ---       LVL=0
+      010000A1H   BLOCK     CODE     NEAR LAB  LVL=1
+      02000000H   SYMBOL    XDATA    INT       adc_value
+      02000002H   SYMBOL    XDATA    ---       output_text
+      ---         BLOCKEND  ---      ---       LVL=1
+      010000A1H   LINE      CODE     ---       #30
+      010000A1H   LINE      CODE     ---       #33
+      010000A4H   LINE      CODE     ---       #34
+      010000A4H   LINE      CODE     ---       #35
+      010000B1H   LINE      CODE     ---       #36
+      010000CEH   LINE      CODE     ---       #37
+      010000D7H   LINE      CODE     ---       #38
+      010000DEH   LINE      CODE     ---       #39
+      010000E1H   LINE      CODE     ---       #40
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      ---         MODULE    ---      ---       LCD
+      01000167H   PUBLIC    CODE     ---       initLCD
+      01000112H   PUBLIC    CODE     ---       _writeLineLCD
+      010001D7H   PUBLIC    CODE     ---       _writeCharLCD
+      010001BDH   PUBLIC    CODE     ---       clearLCD
+      010001CEH   PUBLIC    CODE     ---       _sendCommand
+      010001AAH   PUBLIC    CODE     ---       latchLCD
+      01000192H   PUBLIC    CODE     ---       _delay
+      000000A0H.2 SFRSYM    DATA     BIT       PIN_EN_LCD
+      000000A0H.0 SFRSYM    DATA     BIT       PIN_RS_LCD
+      000000A0H.1 SFRSYM    DATA     BIT       PIN_RW_LCD
+      00000090H   SFRSYM    DATA     BYTE      PORT_LCD
+
+LX51 LINKER/LOCATER V4.66.97.0                                                        05/14/2021  11:27:19  PAGE 5
+
+
+      01000189H   BLOCK     CODE     ---       LVL=0
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      01000192H   BLOCK     CODE     ---       LVL=0
+      00000006H   SYMBOL    DATA     INT       cycles
+      00000004H   SYMBOL    DATA     INT       i
+      01000192H   BLOCK     CODE     NEAR LAB  LVL=1
+      00000004H   SYMBOL    DATA     INT       i
+      ---         BLOCKEND  ---      ---       LVL=1
+      01000192H   LINE      CODE     ---       #13
+      01000192H   LINE      CODE     ---       #15
+      010001A2H   LINE      CODE     ---       #17
+      010001A9H   LINE      CODE     ---       #18
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      010001AAH   BLOCK     CODE     ---       LVL=0
+      010001AAH   BLOCK     CODE     NEAR LAB  LVL=1
+      00000006H   SYMBOL    DATA     INT       i
+      ---         BLOCKEND  ---      ---       LVL=1
+      010001AAH   LINE      CODE     ---       #20
+      010001AAH   LINE      CODE     ---       #22
+      010001ACH   LINE      CODE     ---       #23
+      010001AFH   LINE      CODE     ---       #25
+      010001BAH   LINE      CODE     ---       #26
+      010001BCH   LINE      CODE     ---       #27
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      010001CEH   BLOCK     CODE     ---       LVL=0
+      00000007H   SYMBOL    DATA     BYTE      command
+      010001CEH   LINE      CODE     ---       #29
+      010001CEH   LINE      CODE     ---       #30
+      010001D0H   LINE      CODE     ---       #31
+      010001D2H   LINE      CODE     ---       #32
+      010001D4H   LINE      CODE     ---       #33
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      010001BDH   BLOCK     CODE     ---       LVL=0
+      010001BDH   LINE      CODE     ---       #36
+      010001BDH   LINE      CODE     ---       #37
+      010001C2H   LINE      CODE     ---       #38
+      010001C9H   LINE      CODE     ---       #39
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      010001D7H   BLOCK     CODE     ---       LVL=0
+      00000007H   SYMBOL    DATA     CHAR      input
+      010001D7H   LINE      CODE     ---       #43
+      010001D7H   LINE      CODE     ---       #44
+      010001D9H   LINE      CODE     ---       #45
+      010001DBH   LINE      CODE     ---       #46
+      010001DDH   LINE      CODE     ---       #47
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      01000112H   BLOCK     CODE     ---       LVL=0
+      02000012H   SYMBOL    XDATA    ---       input
+      0100011DH   BLOCK     CODE     NEAR LAB  LVL=1
+      00000004H   SYMBOL    DATA     INT       i
+      ---         BLOCKEND  ---      ---       LVL=1
+      01000112H   LINE      CODE     ---       #50
+      0100011DH   LINE      CODE     ---       #52
+      01000120H   LINE      CODE     ---       #53
+      01000135H   LINE      CODE     ---       #54
+      01000138H   LINE      CODE     ---       #55
+      0100013DH   LINE      CODE     ---       #56
+      0100013FH   LINE      CODE     ---       #57
+      ---         BLOCKEND  ---      ---       LVL=0
+LX51 LINKER/LOCATER V4.66.97.0                                                        05/14/2021  11:27:19  PAGE 6
+
+
+
+      01000167H   BLOCK     CODE     ---       LVL=0
+      01000167H   LINE      CODE     ---       #59
+      01000167H   LINE      CODE     ---       #60
+      01000169H   LINE      CODE     ---       #61
+      0100016BH   LINE      CODE     ---       #62
+      0100016DH   LINE      CODE     ---       #63
+      0100016DH   LINE      CODE     ---       #64
+      01000170H   LINE      CODE     ---       #65
+      01000170H   LINE      CODE     ---       #66
+      01000173H   LINE      CODE     ---       #67
+      01000175H   LINE      CODE     ---       #68
+      01000178H   LINE      CODE     ---       #69
+      0100017AH   LINE      CODE     ---       #70
+      0100017DH   LINE      CODE     ---       #71
+      01000182H   LINE      CODE     ---       #72
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      ---         MODULE    ---      ---       ?C?CLDOPTR
+      01000003H   PUBLIC    CODE     ---       ?C?CLDOPTR
+
+      ---         MODULE    ---      ---       PRINTF
+      02000012H   PUBLIC    XDATA    ---       ?_PRINTF517?BYTE
+      02000012H   PUBLIC    XDATA    ---       ?_PRINTF?BYTE
+      02000012H   PUBLIC    XDATA    ---       ?_SPRINTF517?BYTE
+      02000012H   PUBLIC    XDATA    ---       ?_SPRINTF?BYTE
+      0100086BH   PUBLIC    CODE     ---       _PRINTF
+      0100086BH   PUBLIC    CODE     ---       _PRINTF517
+      01000865H   PUBLIC    CODE     ---       _SPRINTF
+      01000865H   PUBLIC    CODE     ---       _SPRINTF517
+
+      ---         MODULE    ---      ---       ?C?CLDPTR
+      01000030H   PUBLIC    CODE     ---       ?C?CLDPTR
+
+      ---         MODULE    ---      ---       ?C?CSTPTR
+      01000049H   PUBLIC    CODE     ---       ?C?CSTPTR
+
+      ---         MODULE    ---      ---       ?C?PLDIXDATA
+      0100005BH   PUBLIC    CODE     ---       ?C?PLDIXDATA
+
+      ---         MODULE    ---      ---       ?C?PSTXDATA
+      01000072H   PUBLIC    CODE     ---       ?C?PSTXDATA
+
+      ---         MODULE    ---      ---       ?C?CCASE
+      0100007BH   PUBLIC    CODE     ---       ?C?CCASE
+
+      ---         MODULE    ---      ---       PUTCHAR
+      01000140H   PUBLIC    CODE     ---       _PUTCHAR
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 012DH BYTE (14%) *
+******************************************************************************
+
+Program Size: data=15.1 xdata=58 const=6 code=1361
+LX51 RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

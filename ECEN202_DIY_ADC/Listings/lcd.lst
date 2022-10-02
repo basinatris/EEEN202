@@ -1,0 +1,293 @@
+C51 COMPILER V9.60.0.0   LCD                                                               05/14/2021 11:27:19 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE LCD
+OBJECT MODULE PLACED IN .\Objects\lcd.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE lcd.c LARGE OMF2 OPTIMIZE(8,SPEED) BROWSE DEBUG CODE PRINT(.\Listings\lc
+                    -d.lst) TABS(2) OBJECT(.\Objects\lcd.obj)
+
+line level    source
+
+   1          // LCD display functions
+   2          
+   3          #include "lcd.h"
+   4          #define Sfr(x, y)       sfr x = y
+   5          #define Sbit(x, y, z)   sbit x = y^z
+   6          
+   7          Sfr(PORT_LCD,0x90); //port 1
+   8          Sbit(PIN_RS_LCD,0xA0,0); //Port 2 pin 0 
+   9          Sbit(PIN_RW_LCD,0xA0,1); //Port 2 pin 1 
+  10          Sbit(PIN_EN_LCD,0xA0,2); //Port 2 pin 2 
+  11          
+  12          // A simple delay to  cycle and kill time
+  13          void delay(int cycles){
+  14   1        int i;
+  15   1        for(i=0;i<cycles;i++){
+  16   2          // do nothing
+  17   2        }
+  18   1      }
+  19          
+  20          void latchLCD(){
+  21   1        int i;
+  22   1        PIN_EN_LCD=1;
+  23   1        for(i=0;i<50;i++){
+  24   2          // short wait
+  25   2        }
+  26   1        PIN_EN_LCD=0;
+  27   1      }
+  28          
+  29          void sendCommand(unsigned char command){
+  30   1        PIN_RS_LCD=0;
+  31   1        PIN_RW_LCD=0;
+  32   1        PORT_LCD = command;
+  33   1        latchLCD();
+  34   1      }
+  35          
+  36          void clearLCD(){
+  37   1        sendCommand(0x01); //clear the display
+  38   1        delay(500);
+  39   1        sendCommand(0x02); //return the cursor to the start of the display
+  40   1        
+  41   1      }
+  42          
+  43          void writeCharLCD(char input){
+  44   1        PORT_LCD = input;
+  45   1        PIN_RS_LCD = 1;
+  46   1        PIN_RW_LCD = 0;
+  47   1        latchLCD(); 
+  48   1      }
+  49          
+  50          void writeLineLCD(char *input){
+  51   1        int i;
+  52   1        i=0;
+  53   1        while(input[i] != '\0'){
+  54   2          writeCharLCD(input[i]);
+C51 COMPILER V9.60.0.0   LCD                                                               05/14/2021 11:27:19 PAGE 2   
+
+  55   2          i++;
+  56   2        }
+  57   1      }
+  58          
+  59          void initLCD(){
+  60   1        PIN_RS_LCD=0;
+  61   1        PIN_RW_LCD=0;
+  62   1        PIN_EN_LCD=0;
+  63   1        sendCommand(0x30); //start
+  64   1        delay(100);
+  65   1        sendCommand(0x30); //functionSet 8 bit 1 line
+  66   1        delay(100);
+  67   1        sendCommand(0x10); // set cursor no shift, no moving
+  68   1        delay(100);
+  69   1        sendCommand(0x0C); //display on, cursor off, blinking off 
+  70   1        delay(100);
+  71   1        sendCommand(0x06); //entry mode set 
+  72   1        delay(100);
+  73   1      }
+C51 COMPILER V9.60.0.0   LCD                                                               05/14/2021 11:27:19 PAGE 3   
+
+ASSEMBLY LISTING OF GENERATED OBJECT CODE
+
+
+             ; FUNCTION L?0019 (BEGIN)
+0000 7F30              MOV     R7,#030H
+0002         L?0020:
+0002 120000      R     LCALL   _sendCommand
+0005 7F64              MOV     R7,#064H
+0007 7E00              MOV     R6,#00H
+             ; FUNCTION _delay (BEGIN)
+                                           ; SOURCE LINE # 13
+;---- Variable 'cycles' assigned to Register 'R6/R7' ----
+                                           ; SOURCE LINE # 15
+;---- Variable 'i' assigned to Register 'R4/R5' ----
+0009 E4                CLR     A
+000A FD                MOV     R5,A
+000B FC                MOV     R4,A
+000C         ?C0001:
+000C C3                CLR     C
+000D ED                MOV     A,R5
+000E 9F                SUBB    A,R7
+000F EE                MOV     A,R6
+0010 6480              XRL     A,#080H
+0012 F8                MOV     R0,A
+0013 EC                MOV     A,R4
+0014 6480              XRL     A,#080H
+0016 98                SUBB    A,R0
+0017 5007              JNC     ?C0004
+                                           ; SOURCE LINE # 17
+0019 0D                INC     R5
+001A BD0001            CJNE    R5,#00H,?C0016
+001D 0C                INC     R4
+001E         ?C0016:
+001E 80EC              SJMP    ?C0001
+                                           ; SOURCE LINE # 18
+0020         ?C0004:
+0020 22                RET     
+             ; FUNCTION _delay (END)
+
+             ; FUNCTION latchLCD (BEGIN)
+                                           ; SOURCE LINE # 20
+                                           ; SOURCE LINE # 22
+0000 D2A2              SETB    PIN_EN_LCD
+                                           ; SOURCE LINE # 23
+;---- Variable 'i' assigned to Register 'R6/R7' ----
+0002 E4                CLR     A
+0003 FF                MOV     R7,A
+0004 FE                MOV     R6,A
+0005         ?C0005:
+                                           ; SOURCE LINE # 25
+0005 0F                INC     R7
+0006 BF0001            CJNE    R7,#00H,?C0017
+0009 0E                INC     R6
+000A         ?C0017:
+000A EF                MOV     A,R7
+000B 6432              XRL     A,#032H
+000D 4E                ORL     A,R6
+000E 70F5              JNZ     ?C0005
+0010         ?C0006:
+                                           ; SOURCE LINE # 26
+0010 C2A2              CLR     PIN_EN_LCD
+                                           ; SOURCE LINE # 27
+C51 COMPILER V9.60.0.0   LCD                                                               05/14/2021 11:27:19 PAGE 4   
+
+0012 22                RET     
+             ; FUNCTION latchLCD (END)
+
+             ; FUNCTION _sendCommand (BEGIN)
+                                           ; SOURCE LINE # 29
+;---- Variable 'command' assigned to Register 'R7' ----
+                                           ; SOURCE LINE # 30
+0000 C2A0              CLR     PIN_RS_LCD
+                                           ; SOURCE LINE # 31
+0002 C2A1              CLR     PIN_RW_LCD
+                                           ; SOURCE LINE # 32
+0004 8F90              MOV     PORT_LCD,R7
+                                           ; SOURCE LINE # 33
+0006 020000      R     LJMP    latchLCD
+             ; FUNCTION _sendCommand (END)
+
+             ; FUNCTION clearLCD (BEGIN)
+                                           ; SOURCE LINE # 36
+                                           ; SOURCE LINE # 37
+0000 7F01              MOV     R7,#01H
+0002 120000      R     LCALL   _sendCommand
+                                           ; SOURCE LINE # 38
+0005 7FF4              MOV     R7,#0F4H
+0007 7E01              MOV     R6,#01H
+0009 120000      R     LCALL   _delay
+                                           ; SOURCE LINE # 39
+000C 7F02              MOV     R7,#02H
+000E 020000      R     LJMP    _sendCommand
+             ; FUNCTION clearLCD (END)
+
+             ; FUNCTION _writeCharLCD (BEGIN)
+                                           ; SOURCE LINE # 43
+;---- Variable 'input' assigned to Register 'R7' ----
+                                           ; SOURCE LINE # 44
+0000 8F90              MOV     PORT_LCD,R7
+                                           ; SOURCE LINE # 45
+0002 D2A0              SETB    PIN_RS_LCD
+                                           ; SOURCE LINE # 46
+0004 C2A1              CLR     PIN_RW_LCD
+                                           ; SOURCE LINE # 47
+0006 020000      R     LJMP    latchLCD
+             ; FUNCTION _writeCharLCD (END)
+
+             ; FUNCTION _writeLineLCD (BEGIN)
+                                           ; SOURCE LINE # 50
+0000 900000      R     MOV     DPTR,#input
+0003 EB                MOV     A,R3
+0004 F0                MOVX    @DPTR,A
+0005 A3                INC     DPTR
+0006 EA                MOV     A,R2
+0007 F0                MOVX    @DPTR,A
+0008 A3                INC     DPTR
+0009 E9                MOV     A,R1
+000A F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 52
+;---- Variable 'i' assigned to Register 'R4/R5' ----
+000B E4                CLR     A
+000C FD                MOV     R5,A
+000D FC                MOV     R4,A
+000E         ?C0012:
+                                           ; SOURCE LINE # 53
+000E 900000      R     MOV     DPTR,#input
+C51 COMPILER V9.60.0.0   LCD                                                               05/14/2021 11:27:19 PAGE 5   
+
+0011 E0                MOVX    A,@DPTR
+0012 FB                MOV     R3,A
+0013 A3                INC     DPTR
+0014 E0                MOVX    A,@DPTR
+0015 FA                MOV     R2,A
+0016 A3                INC     DPTR
+0017 E0                MOVX    A,@DPTR
+0018 F9                MOV     R1,A
+0019 8D82              MOV     DPL,R5
+001B 8C83              MOV     DPH,R4
+001D 120000      E     LCALL   ?C?CLDOPTR
+0020 FF                MOV     R7,A
+0021 600A              JZ      ?C0014
+                                           ; SOURCE LINE # 54
+0023 120000      R     LCALL   _writeCharLCD
+                                           ; SOURCE LINE # 55
+0026 0D                INC     R5
+0027 BD0001            CJNE    R5,#00H,?C0018
+002A 0C                INC     R4
+002B         ?C0018:
+                                           ; SOURCE LINE # 56
+002B 80E1              SJMP    ?C0012
+                                           ; SOURCE LINE # 57
+002D         ?C0014:
+002D 22                RET     
+             ; FUNCTION _writeLineLCD (END)
+
+             ; FUNCTION initLCD (BEGIN)
+                                           ; SOURCE LINE # 59
+                                           ; SOURCE LINE # 60
+0000 C2A0              CLR     PIN_RS_LCD
+                                           ; SOURCE LINE # 61
+0002 C2A1              CLR     PIN_RW_LCD
+                                           ; SOURCE LINE # 62
+0004 C2A2              CLR     PIN_EN_LCD
+                                           ; SOURCE LINE # 63
+                                           ; SOURCE LINE # 64
+0006 120000      R     LCALL   L?0019
+                                           ; SOURCE LINE # 65
+                                           ; SOURCE LINE # 66
+0009 120000      R     LCALL   L?0019
+                                           ; SOURCE LINE # 67
+000C 7F10              MOV     R7,#010H
+                                           ; SOURCE LINE # 68
+000E 120000      R     LCALL   L?0020
+                                           ; SOURCE LINE # 69
+0011 7F0C              MOV     R7,#0CH
+                                           ; SOURCE LINE # 70
+0013 120000      R     LCALL   L?0020
+                                           ; SOURCE LINE # 71
+0016 7F06              MOV     R7,#06H
+0018 120000      R     LCALL   _sendCommand
+                                           ; SOURCE LINE # 72
+001B 7F64              MOV     R7,#064H
+001D 7E00              MOV     R6,#00H
+001F 020000      R     LJMP    _delay
+             ; FUNCTION initLCD (END)
+
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    167    ----
+C51 COMPILER V9.60.0.0   LCD                                                               05/14/2021 11:27:19 PAGE 6   
+
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----       3
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
